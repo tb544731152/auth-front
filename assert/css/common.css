@@ -1,0 +1,65 @@
+@charset "utf-8";
+/* reset */
+*{margin:0;
+    padding:0;}
+a{
+    color:#666;
+}
+a:focus{
+    color:#666;
+}
+a::visited{ color: #666;}
+a:visited{ color: #666;}
+body,
+html {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    color:#666;
+    font-size:12px;
+    font-family: "微软雅黑",Arial;
+    -webkit-text-size-adjust:none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    color: #666666;
+    background-color: #fff;
+}
+img{border:none;vertical-align: middle;}
+ul,ol{list-style:none;}
+input,textarea{outline:none;background:none;border:none;-webkit-appearance:none; color: #000;}
+textarea{resize:none;}
+a{text-decoration:none;outline:none;}
+.fl{
+    float:left;
+}
+.fr{
+    float:right;
+}
+
+.webkit_box{display:-webkit-box; z-index: 4;}
+.flex1{-webkit-box-flex:1;}
+.vihide{visibility:hidden;}
+.cl{
+    clear: both;
+}
+
+/* 满屏不滚动 */
+.common_screen{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+}
+
+.mask {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    display: none; 
+    z-index: 6666;
+}
+

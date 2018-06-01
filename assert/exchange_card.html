@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+     <meta charset="UTF-8">
+     <meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black" />  
+     <meta http-equiv="content-type" content="text/html; charset=gb2312">  
+     <meta name="liuwanjun" content="True">
+     <meta name="apple-touch-fullscreen" content="YES" /> 
+     <meta name="viewport" content="width=device-width,maximum-scale=1.0,initial-scale=1.0,user-scalable=no"/>  
+     <title>兑换竞猜卡</title>
+     <link rel="stylesheet" href="css/common.css">
+     <link rel="stylesheet" href="css/exchange_card.css">
+</head>
+<body>
+   <div class="wrap">
+        <div class="img">
+             <img src="images/pic6.png">
+        </div>
+        <div class="money">
+             <h2>3688.12</h2>
+             <p>(钱包余额/元)</p>
+        </div>       
+        <div class="img">
+             <img src="images/pic7.png">
+        </div>
+        <div class="exchange">
+             <label class="fl">兑换竞猜卡</label>
+             <div class="fr">              
+                   <input type="number" min="1" max="10" onKeypress="javascript:if(event.keyCode == 32)event.returnValue = false;" name=""  value="1">
+             </div>
+        </div>
+        <p class="tips">*竞猜卡每张 <span>0.1</span元</p>
+        <div class="btn">
+             <p>需￥<span>2.5</span> 兑换</p>
+        </div>
+        <footer>
+            <h3>我的竞猜卡:<span>3</span>张</h3>
+            <p>去竞猜></p>
+        </footer>
+        <div class="mask"></div>
+        <div class="re_suc">
+            <div class="re_title">
+                <h2>兑换失败</h2>
+                <p>您将消耗0.5元钱包余额兑换1张竞猜卡！</p>    
+            </div>
+            <div class="look">
+                <p class="look_f">取消</p>
+                <p class="look_r on">确定兑换</p>
+            </div>
+        </div>
+        <p class="tips_info">余额不足</p>
+   </div>
+</body>
+<script src="js/jquery-1.10.2.js"></script>
+<script src="js/build/flexible.debug.js"></script>
+<script type="text/javascript">
+    //兑换
+    $('.btn').click(function(){
+        $('.mask').show();
+        $('.re_suc').show();
+        $('.wrap').addClass('common_screen');
+    })
+    //点击黑色关闭
+    $('.mask').click(function(){
+        $('.mask').hide();
+        $('.re_suc').hide();
+        $('.wrap').removeClass('common_screen');
+    })
+    //取消
+    $('.look_f').click(function(){
+        $('.mask').hide();
+        $('.re_suc').hide();
+        $('.wrap').removeClass('common_screen');
+    })
+    //确定兑换
+    $('.look_r').click(function(){
+        $('.mask').hide();
+        $('.re_suc').hide();
+        $('.wrap').removeClass('common_screen');
+        $('.tips_info').show();
+        setTimeout(function(){
+           $('.tips_info').hide();
+        },1500)
+    })
+
+     function accMul(arg1,arg2) {
+     var m=0,s1=arg1.toString(),s2=arg2.toString();
+     try{m+=s1.split(".")[1].length}catch(e){}
+     try{m+=s2.split(".")[1].length}catch(e){}
+     return Number(s1.replace(".",""))*Number(s2.replace(".",""))/Math.pow(10,m)
+    }
+     //换算
+      var money1=$('.money h2').text();
+      var price=$('.tips span').text();
+      $('.exchange').on('input propertychange',function(){
+        var num=$('.exchange input').val();
+        if(!/^[1-9]+\d*$/.test(num)){
+             $('.tips_info').show();
+             $('.tips_info').text('只能输入整数');
+             setTimeout(function(){
+               $('.tips_info').hide();
+             },2000);
+        }else if(accMul(num,price)>parseFloat(money1)){     
+             $('.tips_info').show();
+             $('.tips_info').text('余额不足');
+            setTimeout(function(){
+              $('.tips_info').hide();
+            },2000);
+        }else{
+            $('.btn p span').text(accMul(num,price));        
+        }
+    })
+    //兑换
+    $('.btn').click(function(){ 
+        var nums=$('.exchange input').val(); 
+        if(!/^[1-9]+\d*$/.test(nums)){               
+            $('.tips_info').show();
+            $('.tips_info').text('只能输入正整数');
+             setTimeout(function(){
+              $('.tips_info').hide();
+            },2000);
+        }else if(accMul(nums,price)>parseFloat(money1)){                
+             $('.tips_info').show();
+             $('.tips_info').text('余额不足');
+             //$('.exchange input').val('');
+             setTimeout(function(){
+              $('.tips_info').hide();
+            },2000); 
+        }else{                  
+            $('.used_money').text($('.btn p span').text());
+            $('.num_card').text($('.exchange input').val());
+            $('.mask').show();
+            $('.re_suc').show();
+            $('.wrap').addClass('common_screen');
+        } 
+        
+    })
+
+    
+</script>
+</html>

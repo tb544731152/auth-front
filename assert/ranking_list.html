@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+     <meta charset="UTF-8">
+     <meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black" />  
+     <meta http-equiv="content-type" content="text/html; charset=gb2312">  
+     <meta name="liuwanjun" content="True">
+     <meta name="apple-touch-fullscreen" content="YES" /> 
+     <meta name="viewport" content="width=device-width,maximum-scale=1.0,initial-scale=1.0,user-scalable=no"/>  
+     <title>排行榜</title>
+     <link rel="stylesheet" href="css/common.css">
+     <link rel="stylesheet" href="css/ranking_list.css">
+    </head>
+<body>
+   <div class="wrap">
+          <header>
+               <p class="on">懂球帝</p>
+               <p>毒奶师</p>
+          </header>
+          <nav>
+             <p>排名</p>
+             <p>昵称</p>
+             <p>累计分值</p>
+          </nav>
+          <div class="list">
+              <div class="tab" style="display: block;">
+                   <ul>
+                 <li>
+                   <p>12</p>
+                   <p class="name">中烟追溯你好啊啊</p>
+                   <p>144</p>
+                 </li>
+                 <li>
+                   <p>12</p>
+                   <p class="name">你好你好你好啊</p>
+                   <p>144</p>
+                 </li>
+                 <li>
+                   <p>12</p>
+                   <p class="name">你好你好你好啊</p>
+                   <p>144</p>
+                 </li>
+                 <li>
+                   <p>12</p>
+                   <p class="name">你好你好你好啊</p>
+                   <p>144</p>
+                 </li>
+                 <li>
+                   <p>12</p>
+                   <p class="name">你好你好你好啊</p>
+                   <p>144</p>
+                 </li>
+                 <li>
+                   <p>12</p>
+                   <p class="name">你好你好你好啊</p>
+                   <p>144</p>
+                 </li>
+                 <li>
+                   <p>12</p>
+                   <p class="name">你好你好你好啊</p>
+                   <p>144</p>
+                 </li>
+                 <li>
+                   <p>12</p>
+                   <p class="name">你好你好你好啊</p>
+                   <p>144</p>
+                 </li>
+                 <li>
+                   <p>12</p>
+                   <p class="name">你好你好你好啊</p>
+                   <p>144</p>
+                 </li>
+               </ul>
+
+               <footer>
+                <div class="ranking fl">
+                    <p>玩法说明</p>
+                </div>
+                <h3 class="fl">我的排名 <span>300</span></h3>
+                <h3 class="fr">累计分值 <span>3</span></h3>
+             </footer>
+
+              </div>
+
+              <div class="tab">
+                  <ul>
+                 <li>
+                   <p>12</p>
+                   <p class="name">你好你好你好啊</p>
+                   <p>144</p>
+                 </li>
+                 <li>
+                   <p>12</p>
+                   <p class="name">你好你好你好啊</p>
+                   <p>144</p>
+                 </li>
+                 <li>
+                   <p>12</p>
+                   <p class="name">你好你好你好啊</p>
+                   <p>144</p>
+                 </li>
+                 <li>
+                   <p>12</p>
+                   <p class="name">你好你好你好啊</p>
+                   <p>144</p>
+                 </li>
+                 <li>
+                   <p>12</p>
+                   <p class="name">你好你好你好啊</p>
+                   <p>144</p>
+                 </li>
+                 <li>
+                   <p>12</p>
+                   <p class="name">你好你好你好啊</p>
+                   <p>144</p>
+                 </li>
+                 <li>
+                   <p>12</p>
+                   <p class="name">你好你好你好啊</p>
+                   <p>144</p>
+                 </li>
+                 <li>
+                   <p>12</p>
+                   <p class="name">你好你好你好啊</p>
+                   <p>144</p>
+                 </li>
+                 <li>
+                   <p>12</p>
+                   <p class="name">你好你好你好啊</p>
+                   <p>144</p>
+                 </li>
+               </ul>
+               <footer>
+                <div class="ranking fl">
+                    <p>玩法说明</p>
+                </div>
+                <h3 class="fl">我的排名 <span>200</span></h3>
+                <h3 class="fr">累计分值 <span>3</span></h3>
+             </footer>
+              </div>
+              
+              
+          </div>
+
+           
+
+      <div class="mask"></div>
+       <!-- 排名规则 -->
+       <div class="ranking_box">
+            <p class="ranking_close"></p>
+            <h2>排名规则</h2>
+            <ul>
+                <li>小组出线竞猜(共8组)：从每个小组中选出两个您认为将会出线的球队；</li>
+                <li>小组奖池设定：每个小组竞猜奖池1000元到10000元，根据每个小组参与人数往上累加，猜对用户瓜分该奖池奖金；</li>
+                <li>8组竞猜全对用户，更可获得XXXX大奖！</li>
+                <li>每组竞猜需消耗一定数量的竞猜卡；</li>
+                <li>竞猜截止时间：2018年6月14日 18点；</li>
+            </ul>
+       </div>
+       <!-- 排名规则 -->
+
+   </div>
+</body>
+<script src="js/jquery-1.10.2.js"></script>
+<script src="js/build/flexible.debug.js"></script>
+<script type="text/javascript">
+   //切换
+   $('header p').click(function(){
+     var index=$(this).index();
+     $(this).addClass('on').siblings().removeClass('on');
+     $('.list .tab').eq(index).show().siblings().hide();
+   })
+
+   //判断名字长度
+   $('.list .tab').each(function(){
+     $(this).find('.name').each(function(){
+      var length_name=$(this).text().length;
+      if(length_name>6){
+      var name=$(this).text();
+        name=name.substring(0,6);
+        $(this).text(name+'...');
+    }
+     })
+   })
+
+
+   //排名规则
+    $('.ranking').click(function(){
+        $('.ranking_box').show();
+        $('.mask').show();
+        $('.wrap').addClass('common_screen');
+    })
+    //活动说明关闭
+    $('.ranking_close').click(function(){
+        $('.ranking_box').hide();
+        $('.mask').hide();
+        $('.wrap').removeClass('common_screen');
+    })
+    
+    
+</script>
+</html>

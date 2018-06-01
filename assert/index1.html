@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+     <meta charset="UTF-8">
+     <meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black" />  
+     <meta http-equiv="content-type" content="text/html; charset=gb2312">  
+     <meta name="liuwanjun" content="True">
+     <meta name="apple-touch-fullscreen" content="YES" /> 
+     <meta name="viewport" content="width=device-width,maximum-scale=1.0,initial-scale=1.0,user-scalable=no"/>  
+     <title>世界杯场次竞猜</title>
+     <link rel="stylesheet" href="css/common.css">
+     <link rel="stylesheet" href="css/index1.css">   
+</head>
+<body>
+   <div class="wrap">
+        <div class="img">
+             <img class="img1" src="images/pic1.png">
+             <p class="date1">2018.6.14   18:00截止</p>
+             <img class="img2" src="images/pic2.png">
+             <p class="date2">2018.6.14   18:00截止</p>
+             <img class="img3" src="images/pic3.png">
+             <img class="img4" src="images/pic4.png">
+             <img class="img5" src="images/pic5.png">
+        </div>
+        <footer>
+             <div class="rule fl">
+                  <p>玩法说明</p>
+             </div>
+             <h3 class="fl">我的竞猜卡:<span>3</span>张</h3>
+             <p class="fr get">获取></p>
+        </footer>
+
+       <div class="mask"></div>
+        <!-- 提示-->
+       <div class="card_insufficient">
+            <h2>获取竞猜卡</h2>
+            <p>1.通过扫码验证XXX获取竞猜卡；</p>
+            <p>2.使用钱包余额换购竞猜卡；</p>
+            <div class="btn_box">
+                 <p class="know">我知道了</p>
+                 <p class="exchange">去兑换</p>
+            </div>
+       </div>
+       <!-- 提示-->
+   </div>
+</body>
+<script src="js/jquery-1.10.2.js"></script>
+<script src="js/build/flexible.debug.js"></script>
+<script type="text/javascript">
+    //获取
+    $('.get').click(function(){
+      $('.card_insufficient').show();
+      $('.mask').show();
+    })
+    //点击黑色遮罩
+    $('.mask').click(function(){
+      $('.card_insufficient').hide();
+      $('.mask').hide();
+    })
+    //我知道了
+    $('.know').click(function(){
+      $('.card_insufficient').hide();
+      $('.mask').hide();
+    })
+    //去兑换
+    $('.exchange').click(function(){
+       $('.card_insufficient').hide();
+       $('.mask').hide();
+    })
+</script>
+</html>

@@ -1,0 +1,413 @@
+.wrap{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	background:#000 url(../images/world1.jpg) no-repeat;
+	background-size: 100% 100%;
+	background-attachment:fixed;
+	overflow: hidden; 
+}
+
+.content{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	
+}
+.tit {
+	height: 1.40625rem;
+	width: 100%;
+	background-color: #212121;
+	position:fixed;
+	top: 0;
+	left: 0;
+	z-index: 66;
+}
+.tit li {
+  float: left;
+  height: 1.40625rem;
+  line-height: 1.40625rem; 
+  width: 3.328125rem;
+  font-size: 14px; 
+  text-align: center; 
+  color: #fdcd89;
+}
+.con{
+	margin-top: 1.40625rem;
+	height: 89%;
+}
+.con ul{
+	height: 100%;
+}
+.con li{
+	display: none;
+	width: 100%;
+	height: 100%;
+	
+}
+.tit li.select {
+    color: #fff;
+}
+.con li.show {
+	display: block;
+}
+/*开奖状态*/
+nav{
+	background-color: #212121;
+	width: 100%;
+	color: #fdcd89;
+	position:fixed;
+	top: 1.40625rem;
+	left: 0;
+	z-index: 66;
+	height: 1.875rem;
+}
+.nav {
+	margin: 0 auto;
+	width: 4.6875rem;
+	height: 1.875rem;
+}
+.nav p{
+  height: 1.25rem;
+  line-height:1.25rem; 
+  font-size: 14px; 
+  text-align: center; 
+  color:#fdcd89;
+  width: 1.71875rem;
+
+}
+.already{
+	display: none;
+}
+.lottery_con{
+	margin-top: 3.28125rem;
+}
+.cut{
+    color: #fff !important;
+    border-bottom: 0.046875rem solid #fff;
+}
+
+.red_color{
+	color: #fe5252;
+}
+.scroll{
+	height: 100%;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling:touch;
+	
+}
+.scroll .tab:last-child{
+	margin-bottom: 1.8rem !important;
+}
+.advanced .tab:last-child{
+	margin-bottom: 5rem !important;
+}
+.tab{
+	width: 9.375rem;
+	height: 6.85625rem;
+	background: url(../images/bg6.png) no-repeat;
+	background-size: cover;
+	margin:0.46875rem auto 0 auto;
+}
+.tab1{
+	width: 9.375rem;
+	height: 9rem;
+	background: url(../images/world6.png) no-repeat;
+	background-size: cover;
+	margin:0 auto 0.46875rem auto;
+}
+
+.space{
+	padding-top: 0.859375rem;
+}
+.breadth{
+	width: 7.1rem;
+	margin: 0 auto;
+	padding:0 !important;
+}
+.title{
+	color: #fad18f;
+	line-height: 0.96875rem;
+	height:0.96875rem; 
+	font-size: 14px;
+	padding:0 3%;
+}
+.title h3{
+	font-size: 16px;
+	margin-right: 0.4rem;
+}
+.title p{
+	margin-right: 0.3rem;
+}
+.title label{
+	color: #fff;
+}
+.countrys{
+	height: 2.796875rem;
+	clear: both;
+	margin-bottom: 0.4rem;
+	display: flex;
+	display:-webkit-flex;
+}
+.every_country{
+	flex: 1;
+	-webkit-flex:1;
+	margin: 0 0.2rem;
+	margin-top: 0.46875rem;
+}
+.vs_box{
+	width: 4.09375rem;
+}
+.vs_box img{
+	width: 100%;
+	height: 1.53125rem;
+}
+
+.process_bar_box{
+  width: 3.75rem;
+  margin: 0 auto;
+  height: 0.109375rem;
+  position: relative;
+}
+.process_bar {
+	background: url('../images/bar.png') no-repeat; 
+	height: 0.109375rem;
+	width: 3.75rem;
+	overflow: hidden;	
+	background-size: cover;
+}
+
+.process_bar_on{
+	background: url('../images/bar2.png') no-repeat;
+	width: 60%;
+	height: 0.109375rem;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	transition: width .5s ease-in;
+	-moz-transition: width .5s ease-in;
+	-webkit-transition: width .5s ease-in;
+	-o-transition: width .5s ease-in;
+	z-index: 2;
+}
+.process_barOn{
+	background: url('../images/bar1.png') no-repeat;
+	width: 60%;
+	height: 0.109375rem;
+	position: absolute;
+	top: 0px;
+	right: 0px !important;
+	transition: width .5s ease-in;
+	-moz-transition: width .5s ease-in;
+	-webkit-transition: width .5s ease-in;
+	-o-transition: width .5s ease-in;
+	z-index: 2;
+}
+.prize_date{
+	height: 1.25rem;
+	line-height: 1.25rem;
+	font-size: 16px;
+	text-align: center;
+	color: #fff;
+	clear: both;
+	font-weight: normal;
+}
+.select_btn{
+	color: #fff;
+	font-size: 14px;
+}
+.select_btn p:nth-child(1){
+	width: 7.8125rem;
+	height: 0.78125rem;
+	line-height: 0.78125rem;
+	text-align: center;
+	margin: 0  auto;
+	background: url("../images/world4.png") no-repeat;
+	background-size: cover;
+}
+.select_btn p:nth-child(2){
+	text-align: center;
+	height: 0.859375rem;
+	line-height: 0.859375rem;
+}
+.lottery{
+	font-size: 26px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 1.375rem;
+	height: 1.375rem;
+	color: #fff;
+}
+.bg{
+	width: 1.890625rem;
+	height: 1.859375rem;
+	background: url(../images/world2.png) no-repeat;
+	background-size: cover;
+	position: relative;
+	margin: 0 auto;
+}
+.on .bg{
+	background: url(../images/world3.png) no-repeat;
+	background-size: cover;
+}
+.country_img{
+	width: 1.734375rem;
+	height: 1.734375rem;
+	position: absolute;
+	left: 0.078125rem;
+	top: 0.0625rem;
+}
+.country_img img{
+	width: 1.734375rem;
+	height: 1.734375rem;
+}
+
+.country_name{
+	text-align: center;
+	font-size: 14px;
+	color: #fad18f;
+}
+.champion{
+	display: none;
+}
+/*冠军预测缺省*/
+.default{
+	width: 100%;
+	background-color: #fff;
+	height:100%;
+	padding-top: 0.9375rem;
+	display: block;
+}
+.img{
+	width: 6.5625rem;
+	height: 4.890625rem;
+	margin:0 auto;
+}
+.img img{
+	width: 100%;
+}
+.none{
+	text-align: center;
+	color: #999999;
+	line-height: 0.9rem;
+	font-size: 16px;
+}
+.guess{
+	width: 5.703125rem;
+	height: 1.171875rem;
+	line-height: 1.171875rem;
+	background-color: #3859d1;
+	text-align: center;
+	margin:2.5rem auto 0 auto;
+	font-size: 14px;
+	color: #fff;
+	border-radius: 0.078125rem;
+}
+/*冠军预测缺省*/
+.box1{
+	color: #fe5252;
+}
+.box2,.box3{
+	color: #fdcd89;
+}
+.box1 h3,.box2 h3,.box3 h3{
+	font-size: 20px;
+	text-align: center;
+	line-height: 0.7rem;
+    height:0.7rem;
+}
+.box1 p,.box2 p,.box3 p{
+  height: 0.859375rem;
+  line-height: 0.859375rem;
+  font-size: 14px;
+  text-align: center;
+  font-weight: bold;
+}
+.box4{
+	color:#fe5252; 
+}
+.box4 p{
+  height: 0.859375rem;
+  line-height: 0.859375rem;
+  font-size: 14px;
+  text-align: center;
+  font-weight: bold;
+}
+.mistake{
+	color: #fe5252;
+}
+.mistake p{
+  height:1.40625rem;
+  line-height: 1.40625rem;
+  font-size: 14px;
+  text-align: center;
+  font-weight: bold;
+}
+.fine{
+	font-weight: normal !important;
+	margin: 0 auto;
+    text-decoration: underline;
+}
+.look{
+	font-weight: bold;
+}
+/*小组出线底部*/
+footer{
+	height:4.21875rem;
+	width: 100%;
+	background-color: #000;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: 6667;
+	box-sizing: border-box;
+	padding:0 0.38rem 0 0.625rem;
+}
+.mar{
+	padding:0 !important;
+	height: 1.28125rem !important;
+	line-height: 1.28125rem !important;
+}
+.group{
+	height: 0.859375rem;
+	clear: both;
+	
+}
+.group span{
+	height: 0.859375rem;
+	width: 0.859375rem;
+	line-height: 0.859375rem;
+	border-radius: 50%;
+	display: inline-block;
+	background-color: #fff;
+	text-align: center;
+	color: #000;
+	margin-right: 0.15625rem;
+}
+.time{
+	height: 1.640625rem;
+	line-height: 1.640625rem;
+	text-align: center;
+	color: #fdcd89;
+	font-weight: bold;
+	display: none;
+}
+.error{
+	height: 1.640625rem;
+	line-height: 1.640625rem;
+	text-align: center;
+	color: #fe5252;
+	font-weight: bold;
+}
+.green{
+	background-color:#7bff7b !important;
+}
+.gray{
+	background-color:#565656 !important;
+}
+.red{
+	background-color:#fe5252 !important;
+}
