@@ -22,4 +22,28 @@ npm install watchify
 npm install -g bower 下载第三方依赖    
 
 bower install  angular 
+
 bower install  lodash
+5.安装 gulp-uglify 对js进行压缩
+npm install gulp-uglify
+使用可上官网 https://www.npmjs.com/package/gulp-uglify
+
+使用参考：
+var gulp = require('gulp');
+var uglify = require('gulp-uglify');
+var pump = require('pump');
+ 
+gulp.task('compress', function (cb) {
+  pump([
+        gulp.src('lib/*.js'),
+        uglify(),
+        gulp.dest('dist')
+    ],
+    cb
+  );
+});
+6.安装依赖 
+cnpm install vinyl-source-stream 
+cnpm install vinyl-buffer  
+此处切换成淘宝镜像
+npm install -g cnpm --registry=https://registry.npm.taobao.org
