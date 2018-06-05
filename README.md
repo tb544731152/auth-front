@@ -47,3 +47,33 @@ cnpm install vinyl-source-stream
 cnpm install vinyl-buffer  
 此处切换成淘宝镜像
 npm install -g cnpm --registry=https://registry.npm.taobao.org
+
+
+7.css clean
+cnpm install gulp-minify-css
+
+
+8.
+cnpm install  gulp-htmlmin
+cnpm install  jshint
+cnpm install  gulp-jshint
+cnpm install  gulp-concat
+cnpm install gulp-rev
+cnpm install gulp-rev-collector
+cnpm install gulp-remove-html
+cnpm install gulp-remove-empty-lines
+cnpm install gulp-replace
+cnpm install  del
+
+
+var htmlmin = require('gulp-htmlmin');//html压缩组件
+var jshint = require('gulp-jshint');//js语法检查
+var concat = require('gulp-concat');//多个文件合并为一个
+var minifyCss = require('gulp-minify-css');//压缩CSS为一行；
+var uglify = require('gulp-uglify');//js文件压缩
+var del = require('del');//文件删除
+var rev = require('gulp-rev');//对文件名加MD5后缀
+var revCollector = require('gulp-rev-collector');//路径替换
+var gulpRemoveHtml = require('gulp-remove-html');//标签清除，参考：https://www.npmjs.com/package/gulp-remove-html
+var removeEmptyLines = require('gulp-remove-empty-lines');//清除空白行，参考：https://www.npmjs.com/package/gulp-remove-empty-lines
+var replace = require('gulp-replace');//文件名替换，参考：https://www.npmjs.com/package/gulp-replace
