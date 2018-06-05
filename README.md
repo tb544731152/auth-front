@@ -77,3 +77,26 @@ var revCollector = require('gulp-rev-collector');//路径替换
 var gulpRemoveHtml = require('gulp-remove-html');//标签清除，参考：https://www.npmjs.com/package/gulp-remove-html
 var removeEmptyLines = require('gulp-remove-empty-lines');//清除空白行，参考：https://www.npmjs.com/package/gulp-remove-empty-lines
 var replace = require('gulp-replace');//文件名替换，参考：https://www.npmjs.com/package/gulp-replace
+
+9..
+
+BrowserSync
+“Browsersync能让浏览器实时、快速响应您的文件更改（html、js、css、sass、less等）并自动刷新页面。更重要的是 Browsersync可以同时在PC、平板、手机等设备下进项调试。您可以想象一下：“假设您的桌子上有pc、ipad、iphone、android等设备，同时打开了您需要调试的页面，当您使用browsersync后，您的任何一次代码保存，以上的设备都会同时显示您的改动”。无论您是前端还是后端工程师，使用它将提高您30%的工作效率。”
+
+简单的说，BrowserSync就是搭建一个nodeJs服务器，监听指定文件，文件改动后，能够自动刷新所有设备的页面。开发时再也不用手动刷新页面啦，yeah~。
+
+
+然后通过npm全局安装browserSync。
+npm install -g browser-sync
+browser-sync --version
+
+
+恭喜你，安装成功啦。
+
+输入一下命令就可以启动服务器啦，默认端口号为3000，如果默认端口号被占用，browserSync会寻找其他可用的端口号。当然，也可以通过--port指定端口号、
+
+browser-sync start --server
+
+
+10
+请各位看下 为啥不能自动刷新页面
