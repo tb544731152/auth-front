@@ -21,14 +21,30 @@ var gif=require('gulp-if');
 var cleanCss =require('gulp-clean-css');
 var fs =require('fs');
 var isProduction = process.env.NODE_ENV  === 'prod';
-
+var browsersync = require('browser-sync').create();
 var buildBasePath = 'src/';//构建输出的目录
 var outPath="dist/";
 
 //执行完成后 执行 gulp concat-js gulp concat-css    gulp rev
-gulp.task('default',function(){
-    sequence('clean','uglify-js','js-update','minify-css','minify-css-watch','copyimg','copyimg-watch','html','html-update');
-})
+gulp.task('default',['serve'])
+
+gulp.task('serve', function() {
+    sequence('clean','uglify-js','minify-css','copyimg','html');
+    browsersync.init({
+        port: 8080,
+        server: {
+            baseDir: ['./src']
+        }
+    });
+    //js监控
+    gulp.watch('assert/js/**/*.js', ['uglify-js'],browsersync.reload());
+    //监控css
+    gulp.watch('assert/css/**/*.css',['minify-css'],browsersync.reload())
+    //监控图片
+    gulp.watch('assert/images/*',['copyimg'],browsersync.reload());
+    //html监控
+    gulp.watch('assert/*.html', ['html'],browsersync.reload());
+});
 // 语法检查
 gulp.task('jshint', function () {
     gulp.src('assert/js/**/*.js')
