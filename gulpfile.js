@@ -24,12 +24,12 @@ var isProduction = process.env.NODE_ENV  === 'prod';
 var browsersync = require('browser-sync').create();
 var buildBasePath = 'src/';//构建输出的目录
 var outPath="dist/";
-
+//执行前最好执行 gulp clean   在执行 gulp
 //执行完成后 执行 gulp concat-js gulp concat-css    gulp rev
 gulp.task('default',['serve'])
 
 gulp.task('serve', function() {
-    sequence('clean','uglify-js','minify-css','copyimg','html');
+    sequence('uglify-js','minify-css','copyimg','html');
     browsersync.init({
         port: 8080,
         server: {
