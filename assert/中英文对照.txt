@@ -1,0 +1,17 @@
+index.html    中烟追溯入口
+index1.html   山东龙江入口
+share.html    分享页面
+exchange_card.html     购买竞猜卡 
+team_guessing.html     小组出线竞猜
+  
+champion_guessing      冠军竞猜
+ranking_list.html      排行列表
+
+field_guessing.html  小组出线
+eight_final.html     1/8决赛
+four_final.html     1/4决赛
+semifinals.html      半决赛
+finals.html          决赛
+group_champion.html   冠军预测
+group_session.html     场次竞猜
+default.htlm         缺省页面

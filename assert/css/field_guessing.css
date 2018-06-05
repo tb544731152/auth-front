@@ -13,14 +13,18 @@
 	width: 100%;
 	height: 1.40625rem;
 	line-height: 1.40625rem;
-	text-align: center;
-	color: #fad18f;
+	text-align: center;	
 	background: rgba(0,0,0,0.9);
 	font-size: 14px;
 }
-.top p.on{
-   background: rgba(33,33,33,0.9);
-   color: #fff;
+.top p a{	
+  color: #fad18f; 
+  display: inline-block; 
+  width: 100%;
+}
+.top p.on a{
+	background: rgba(33,33,33,0.9);
+    color: #fff;
 }
 .content{
 	width: 100%;
@@ -39,9 +43,6 @@
 .container{
 	margin-top: 1.875rem;
 	margin-bottom: 2.1875rem;
-}
-.container .tab_box{
-	display: none;
 }
 .team_title{
 	width: 9.375rem;
@@ -125,28 +126,34 @@
 }
 .title{
 	color: #fad18f;
-	height: 1.0rem;
-	line-height: 1.0rem;
-	font-size: 14px;
-	width: 100%;
-	background: url(../images/bg8.png) no-repeat;
-	background-size: cover;
+	line-height: 0.96875rem;
+	height:0.96875rem; 
+	font-size: 12px;
+	padding:0 3%;
 	text-align: center;
+	position: relative;
+}
+.title h3{
+	font-size: 16px;
+	position: absolute;
+	left: 0.2rem;
 }
 .title p{
-	float: left;
-	width: 45%;
 	color: #fad18f;
+	
 }
 .title p label{
 	color: #fff;
 }
-.title p:nth-child(1){
-	text-align: right;
-	margin-right: 10%;
+.m_l{
+	margin-left: 0.3rem;
 }
-.title p:nth-child(2){
-	text-align: left;
+
+.icon{
+   background: url(../images/money.png) no-repeat left 0.15rem;
+   background-size: 0.5625rem 0.5625rem; 
+   padding-left: 0.71875rem;
+   display: inline-block;
 }
 .prize_date{
 	height: 1.25rem;
@@ -180,15 +187,15 @@
 }
 
 .country_img{
-	width: 1.734375rem;
-	height: 1.734375rem;
+	width: 1.40625rem;
+	height: 1.40625rem;
 	position: absolute;
-	left: 0.078125rem;
-	top: 0.0625rem;
+	left: 0.2421875rem;
+	top: 0.2421875rem;
 }
 .country_img img{
-	width: 1.734375rem;
-	height: 1.734375rem;
+	width: 1.40625rem;
+	height: 1.40625rem;
 }
 
 .country_name{
@@ -266,6 +273,10 @@
 .guessing_progress p:nth-child(1),.guessing_progress p:nth-child(2){
 	margin-right: 0.640625rem;
 }
+/*山东*/
+/*.guessing_progress p:nth-child(1){
+	margin-right: 3.625rem;
+}*/
 .guessing_progress.on p{
   width: 8.28125rem;
   margin:0 auto;

@@ -1,15 +1,3 @@
-
-//展开收缩
-$('.container').delegate('.team_title','click',function(){
-	if($(this).hasClass('on')){
-		$(this).removeClass('on');
-      $(this).parents('.team_box').find('.team_content').slideUp();
-	}else{
-	  $(this).addClass('on');
-	  $(this).parents('.team_box').find('.team_content').slideDown();
-	}
-	
-})
 //选择哪个胜利
 $('.tab_box').delegate('.guessing_progress p','click',function(){
 	$(this).parents('.guessing_progress').find('p').removeClass('on')
@@ -90,4 +78,3 @@ $('.tab_box').delegate('.btn','click',function(){
       $('.card_get').show();
       $('.wrap').addClass('common_screen');
     })
-

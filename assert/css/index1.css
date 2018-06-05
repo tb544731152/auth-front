@@ -74,6 +74,8 @@ footer h3{
 }
 footer h3 span{
 	color: #f0ff00;
+	font-weight: bold;
+	margin-right: 0.2rem;
 }
 footer>p{
 	color: #f0ff00;
@@ -101,24 +103,28 @@ footer>p{
 	line-height: 1.2rem;
 	text-align: center;
 }
-.card_insufficient p{
+.card_insufficient p,.activity_tips p{
 	font-size: 12px;
 	color: #4a4a4a;
-	line-height: 0.46875rem;
+	line-height: 0.55rem;
 	width: 80%;
 	margin:0 auto;
+	overflow: hidden;
+}
+.text1{
+	margin-top: 0.2rem !important;
 }
 .btn_box{	
 	height: 0.875rem;
 	line-height: 0.875rem;
-	width: 6.71875rem;
+	width: 6.91875rem;
 	margin:0.4rem auto 0 auto;
 }
 .btn_box p{
 	height: 0.875rem;
 	line-height: 0.875rem;
 	float: left;
-	width: 2.6875rem;
+	width: 2.7875rem;
 	border-radius: 5px;
 	background: #a5a5a5;
 	color: #fff;
@@ -131,3 +137,42 @@ footer>p{
 .btn_box p.exchange{
 	background: #30bf6c;
 }
+
+.entrance{
+	width: 2.265625rem;
+	height: 2.578125rem;
+	position: fixed;
+	right: 0;
+	bottom: 2.5rem;
+}
+.entrance img{
+	width: 2.265625rem;
+	height: 2.578125rem;
+}
+
+/*活动提示*/
+.activity_tips{
+  width: 8.5rem;
+  height: 6rem;
+  padding:0.5rem 0;
+  position: absolute;
+  z-index: 6668;
+  top:50%;
+  left:0;
+  right: 0;
+  margin:-3.5rem auto 0 auto;
+  border-radius: 5px;
+  background: #fff;
+  display: none;
+  
+}
+.activity_tips h2{
+	font-size: 16px;
+	color: #4a4a4a;
+	line-height: 1.2rem;
+	text-align: center;
+}
+.text1{
+	margin-top: 0.2rem !important;
+}
+

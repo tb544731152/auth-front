@@ -71,18 +71,39 @@
 .title{
 	color: #fad18f;
 	line-height: 0.96875rem;
-	font-size: 14px;
+	height:0.96875rem; 
+	font-size: 12px;
 	padding:0 3%;
+	text-align: center;
+	position: relative;
 }
 .title h3{
 	font-size: 16px;
-	margin-right: 0.4rem;
+	position: absolute;
+	left: 0.2rem;
 }
 .title p{
-	margin-right: 0.3rem;
+	color: #fad18f;
+	
 }
-.title label{
+.title p label{
 	color: #fff;
+}
+.m_l{
+	margin-left: 0.3rem;
+}
+
+.icon{
+   background: url(../images/money.png) no-repeat left 0.15rem;
+   background-size: 0.5625rem 0.5625rem; 
+   padding-left: 0.71875rem;
+   display: inline-block;
+}
+.icon1{
+   background: url(../images/money.png) no-repeat left;
+   background-size: 0.5rem 0.5rem; 
+   padding-left: 0.71875rem;
+   display: inline-block;
 }
 .countrys{
 	height: 2.796875rem;
@@ -107,24 +128,26 @@
 	background-size: cover;
 }
 .country_img{
-	width: 1.734375rem;
-	height: 1.734375rem;
+	width: 1.40625rem;
+	height: 1.40625rem;
 	position: absolute;
-	left: 0.078125rem;
-	top: 0.0625rem;
+	left: 0.2421875rem;
+	top: 0.2421875rem;
 }
 .country_img img{
-	width: 1.734375rem;
-	height: 1.734375rem;
+	width: 1.40625rem;
+	height: 1.40625rem;
 }
 .percentage{
-	font-size: 12px;
-	position: absolute;
-	color: #333333;
-	top:0.05rem;
-	right: -0.08rem;
-	transform:rotate(48deg);
-    -webkit-transform:rotate(48deg); /* Safari 和 Chrome */
+	text-align: center;
+    width: 0.75rem;
+    font-size: 12px;
+    position: absolute;
+    color: #333333;
+    top: 0.05rem;
+    right: -0.08rem;
+    transform: rotate(48deg);
+    -webkit-transform: rotate(48deg);
 }
 .country_name{
 	text-align: center;

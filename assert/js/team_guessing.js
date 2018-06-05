@@ -13,25 +13,33 @@
     
    //选择球队
    $('.countrys').delegate('.every_country','click',function(){
-         if($(this).hasClass('on')){
+           if($(this).hasClass('on')){
                 $(this).removeClass('on');
             }else{
                 $(this).addClass('on');
-            }        
+            } 
+           var nums=$(this).parents('.countrys').find('.on').length; 
+           if(nums>2){
+             $(this).removeClass('on');
+                 $('.tips_box').show();
+               setTimeout(function(){
+                  $('.tips_box').hide();
+               },1500)
+           } 
     })
    //确认参加竞猜
    $('.btn').click(function(){
       var id=$(this).parents('.tab').attr('id');
       $('.sure_').attr('data-id',id);
       var nums=$(this).parents('.tab').find('.on').length;
-      if(nums>2 || nums<2){
+      if(nums<2){
         $('.tips_box').show();
          setTimeout(function(){
             $('.tips_box').hide();
          },1500)
       }else{
         //模拟数据 state=1消耗卡参加竞猜 state=0竞猜卡不足  
-        var state=2;
+        var state=0;
         if(state==0){
             $('.card_insufficient').show();
             $('.mask').show();

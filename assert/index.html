@@ -25,8 +25,9 @@
              <img class="img4" src="images/pic4.png">
              <img class="img5" src="images/pic5.png">
         </div>
+        
         <footer>
-            <h3>我的竞猜:<span>1</span>张</h3>
+            <h3>我的竞猜卡：<span>1</span>张</h3>
             <p>分享到群-获取竞猜卡（今日剩余<span>3</span>次）</p>
         </footer>
         <div class="mask"></div>
@@ -100,6 +101,32 @@
                      </div>
                  </div>
    </div>
+   <div class="entrance">
+        <img src="images/entrance.png">
+   </div>
+
+   <!-- 活动提示-->
+       <div class="activity_tips">
+            <h2>提示</h2>
+            <p> 世界杯竞猜活动将于2018.6.8 12:00全面开启，百万奖池等你来瓜分，你的竞猜卡都准备好了么？</p>
+            <p class="text1">如何获取竞猜卡：</p>
+             <p>1. 成为烟酒员邀请朋友可获得竞猜卡；</p>
+            <p>2. 点击页面下方分享可获得竞猜卡；</p>
+             
+
+            <div class="btn_box">
+                 <p class="know">我知道了</p>
+                 <p class="towine">去烟酒员主页</p>
+            </div>
+       </div>
+       <!-- 活动提示-->
+
+
+       <!-- 烟酒员获取竞猜卡 -->
+       <div class="guessing_card">
+            <img src="images/entrance1.png">
+       </div>
+       <!-- 烟酒员获取竞猜卡 -->
 </body>
 <script src="js/jquery-1.10.2.js"></script>
 <script src="js/build/flexible.debug.js"></script>
@@ -114,6 +141,7 @@
        $('.mask').hide();
        $('.share_img').hide();
        $('.wrap').removeClass('common_screen');
+       $('.activity_tips').hide();
     })
 
     setTimeout(function(){
@@ -121,14 +149,23 @@
     },1500)
 
     $('.img2,.img3,.img4,.img5').click(function(){
-        $('.tips').text('活动即将开启');
-        $('.tips').show();
-      setTimeout(function(){
-        $('.tips').hide();
-      },1500)
+     $('.mask').show();
+     $('.activity_tips').show();
+     $('.wrap').addClass('common_screen');
       return false;
     })
-
+    //我知道了
+    $('.know').click(function(){
+      $('.activity_tips').hide();
+      $('.mask').hide();
+      $('.wrap').removeClass('common_screen');
+    })
+     //去烟酒员主页
+    $('.towine').click(function(){
+       $('.activity_tips').hide();
+       $('.mask').hide();
+       location.href="";
+    })
     $('.img1').click(function(){
         return false;
     })
@@ -144,6 +181,10 @@
       $('.mask').hide();
       $('.grow_box').hide();
       $('.wrap').removeClass('common_screen');
+    })
+    //跳转排行榜页面
+    $('.entrance').click(function(){
+        location.href="";
     })
  
 </script>

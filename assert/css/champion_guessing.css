@@ -39,7 +39,12 @@
 	background: -webkit-linear-gradient(top,#ffebab,#baa676);
     margin:0 auto;
 }
-
+.icon1{
+   background: url(../images/money.png) no-repeat left;
+   background-size: 0.5rem 0.5rem; 
+   padding-left: 0.71875rem;
+   display: inline-block;
+}
 .red{
 	color: #da0000;
 	font-weight: bold;
@@ -98,17 +103,19 @@
 	background-size: cover;
 }
 .country_img{
-	width: 1.734375rem;
-	height: 1.734375rem;
+	width: 1.40625rem;
+	height: 1.40625rem;
 	position: absolute;
-	left: 0.078125rem;
-	top: 0.0625rem;
+	left: 0.2421875rem;
+	top: 0.2421875rem;
 }
 .country_img img{
-	width: 1.734375rem;
-	height: 1.734375rem;
+	width: 1.40625rem;
+	height: 1.40625rem;
 }
 .percentage{
+	text-align: center;
+	width: 0.75rem;
 	font-size: 12px;
 	position: absolute;
 	color: #333333;

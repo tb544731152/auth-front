@@ -26,13 +26,13 @@
              <div class="rule fl">
                   <p>玩法说明</p>
              </div>
-             <h3 class="fl">我的竞猜卡:<span>3</span>张</h3>
+             <h3 class="fl">我的竞猜卡：<span>3</span>张</h3>
              <p class="fr get">获取></p>
         </footer>
 
        <div class="mask"></div>
         <!-- 提示-->
-       <div class="card_insufficient">
+              <div class="card_insufficient">
             <h2>获取竞猜卡</h2>
             <p>1.通过扫码验证XXX获取竞猜卡；</p>
             <p>2.使用钱包余额换购竞猜卡；</p>
@@ -42,6 +42,27 @@
             </div>
        </div>
        <!-- 提示-->
+
+
+       <!-- 活动提示-->
+       <div class="activity_tips">
+            <h2>提示</h2>
+            <p> 世界杯竞猜活动将于2018.6.8 12:00全面开启，300万大奖等你来瓜分，你的竞猜卡都准备好了么？</p>
+            <p class="text1">如何获取竞猜卡：</p>
+           <p>1.通过扫描验证产品二维码获得竞猜卡；</p>
+            <p>2.使用钱包余额兑换竞猜卡；</p>
+             
+
+            <div class="btn_box">
+                 <p class="know">我知道了</p>
+                 <p class="exchange">去兑换</p>
+            </div>
+       </div>
+       <!-- 活动提示-->
+   </div>
+
+   <div class="entrance">
+        <img src="images/entrance.png">
    </div>
 </body>
 <script src="js/jquery-1.10.2.js"></script>
@@ -55,17 +76,34 @@
     //点击黑色遮罩
     $('.mask').click(function(){
       $('.card_insufficient').hide();
+      $('.activity_tips').hide();
       $('.mask').hide();
+    })
+
+    $('.img2,.img3,.img4,.img5').click(function(){
+     $('.mask').show();
+     $('.activity_tips').show();
+     $('.wrap').addClass('common_screen');
+      return false;
     })
     //我知道了
     $('.know').click(function(){
       $('.card_insufficient').hide();
-      $('.mask').hide();
+      $('.activity_tips').hide();
+      $('.mask').hide();3
     })
-    //去兑换
+     //去兑换
     $('.exchange').click(function(){
+       $('.activity_tips').hide();
        $('.card_insufficient').hide();
        $('.mask').hide();
+       $('.wrap').removeClass('common_screen');
     })
+    
+    //跳转排行榜页面
+    $('.entrance').click(function(){
+        location.href="";
+    })
+    
 </script>
 </html>

@@ -1,0 +1,22 @@
+.wrap{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top:0;
+	left:0;
+	background: #f5f8fa;
+}
+.pic{
+	width: 3.4375rem;
+	height: 4.078125rem;
+	margin:2.8125rem auto 1.25rem auto;
+}
+.pic img{
+	width: 3.4375rem;
+	height: 4.078125rem;
+}
+.text{
+	color: #adadad;
+	text-align: center;
+	font-size: 14px;
+}

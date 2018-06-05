@@ -8,7 +8,6 @@
 	background-attachment:fixed;
 	overflow: hidden; 
 }
-
 .content{
 	width: 100%;
 	height: 100%;
@@ -20,13 +19,13 @@
 .tit {
 	height: 1.40625rem;
 	width: 100%;
-	background-color: #212121;
+	background-color: #0f1010;
 	position:fixed;
 	top: 0;
 	left: 0;
 	z-index: 66;
 }
-.tit li {
+.tit li a{
   float: left;
   height: 1.40625rem;
   line-height: 1.40625rem; 
@@ -36,27 +35,47 @@
   color: #fdcd89;
 }
 .con{
-	margin-top: 1.40625rem;
-	height: 89%;
+	padding-top: 1.40625rem;
+	height: 100%;
+	box-sizing: border-box;
 }
 .con ul{
 	height: 100%;
 }
 .con li{
-	display: none;
 	width: 100%;
 	height: 100%;
+	padding-top: 0.001rem;
 	
 }
-.tit li.select {
+.tit li.select a{
     color: #fff;
+    background: #1e1f21;
 }
 .con li.show {
 	display: block;
 }
+.tips{
+	width: 8rem;
+	padding:0 0.2rem;
+	height: 2.2rem;
+	line-height: 2.2rem;
+	font-size: 16px;
+	color: #fff;
+	background: rgba(0,0,0,0.5);
+	position: absolute;
+	top: 50%;
+	left:0;
+	right: 0;
+    margin:0 auto;
+    margin-top: -1.1rem;
+    text-align: center;
+    border-radius: 10px;
+    display: none;
+}
 /*开奖状态*/
 nav{
-	background-color: #212121;
+	background-color: #1e1f21;
 	width: 100%;
 	color: #fdcd89;
 	position:fixed;
@@ -83,7 +102,7 @@ nav{
 	display: none;
 }
 .lottery_con{
-	margin-top: 3.28125rem;
+	margin-top: 2.28125rem;
 }
 .cut{
     color: #fff !important;
@@ -123,27 +142,37 @@ nav{
 .space{
 	padding-top: 0.859375rem;
 }
-.breadth{
-	width: 7.1rem;
-	margin: 0 auto;
-	padding:0 !important;
-}
+
 .title{
 	color: #fad18f;
 	line-height: 0.96875rem;
 	height:0.96875rem; 
-	font-size: 14px;
+	font-size: 12px;
 	padding:0 3%;
+	text-align: center;
+	position: relative;
 }
 .title h3{
 	font-size: 16px;
-	margin-right: 0.4rem;
+	position: absolute;
+	left: 0.2rem;
 }
 .title p{
-	margin-right: 0.3rem;
+	color: #fad18f;
+	
 }
-.title label{
+.title p label{
 	color: #fff;
+}
+.m_l{
+	margin-left: 0.3rem;
+}
+
+.icon{
+   background: url(../images/money.png) no-repeat left 0.15rem;
+   background-size: 0.5625rem 0.5625rem; 
+   padding-left: 0.71875rem;
+   display: inline-block;
 }
 .countrys{
 	height: 2.796875rem;
@@ -254,15 +283,15 @@ nav{
 	background-size: cover;
 }
 .country_img{
-	width: 1.734375rem;
-	height: 1.734375rem;
+	width: 1.40625rem;
+	height: 1.40625rem;
 	position: absolute;
-	left: 0.078125rem;
-	top: 0.0625rem;
+	left: 0.2421875rem;
+	top: 0.2421875rem;
 }
 .country_img img{
-	width: 1.734375rem;
-	height: 1.734375rem;
+	width: 1.40625rem;
+	height: 1.40625rem;
 }
 
 .country_name{
@@ -270,16 +299,15 @@ nav{
 	font-size: 14px;
 	color: #fad18f;
 }
-.champion{
-	display: none;
-}
+
 /*冠军预测缺省*/
 .default{
 	width: 100%;
 	background-color: #fff;
 	height:100%;
 	padding-top: 0.9375rem;
-	display: block;
+	display: none;
+	box-sizing: border-box;
 }
 .img{
 	width: 6.5625rem;
@@ -292,7 +320,7 @@ nav{
 .none{
 	text-align: center;
 	color: #999999;
-	line-height: 0.9rem;
+	line-height: 1.875rem;
 	font-size: 16px;
 }
 .guess{
@@ -356,8 +384,8 @@ nav{
 }
 /*小组出线底部*/
 footer{
-	height:4.21875rem;
 	width: 100%;
+	height: 4.6875rem;
 	background-color: #000;
 	position: fixed;
 	bottom: 0;
@@ -368,8 +396,11 @@ footer{
 }
 .mar{
 	padding:0 !important;
-	height: 1.28125rem !important;
-	line-height: 1.28125rem !important;
+	margin:0.2rem 0;
+}
+.mar p{
+	position: absolute;
+	left: 2.4rem;
 }
 .group{
 	height: 0.859375rem;
@@ -401,6 +432,19 @@ footer{
 	text-align: center;
 	color: #fe5252;
 	font-weight: bold;
+	display: block;
+}
+.winning{
+	  font-size: 14px;
+	  text-align: center;
+	  font-weight: bold;
+	  color: #fdcd89;
+	  display: none;
+}
+.color{
+	 color: #7bff7b !important;
+	 line-height: 1.3rem;
+	 height: 1.3rem;
 }
 .green{
 	background-color:#7bff7b !important;
