@@ -99,6 +99,8 @@ index.html 有ajax请求实例
 gulp clean  //清除原有文件夹文件
 gulp        //动态监控
 
+node app.js //后台启动你们可以自行百度
+
 上线后执行
 gulp concat-js    //对比生成 js 更换md5文件 .json
 gulp concat-css     //对比生成 css 更换md5文件 .json
