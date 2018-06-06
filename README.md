@@ -100,3 +100,16 @@ browser-sync start --server
 
 10
 请各位看下 为啥不能自动刷新页面
+
+
+启动命令 ：
+
+gulp clean  //清除原有文件夹文件
+gulp dev    //发布文件
+gulp           //动态监控
+
+上线后执行
+gulp concat-js    //对比生成 js 更换md5文件 .json
+gulp concat-css     //对比生成 css 更换md5文件 .json
+
+gulp rev   //执行更换  解决页面样式缓存问题
