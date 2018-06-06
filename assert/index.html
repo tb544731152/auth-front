@@ -27,7 +27,7 @@
         </div>
         
         <footer>
-            <h3>我的竞猜卡：<span>1</span>张</h3>
+            <h3>我的竞猜卡：<span>2</span>张</h3>
             <p>分享到群-获取竞猜卡（今日剩余<span>3</span>次）</p>
         </footer>
         <div class="mask"></div>
@@ -135,6 +135,18 @@
       $('.mask').show();
       $('.share_img').show();
       $('.wrap').addClass('common_screen');
+      var id='1';
+      $.ajax({
+			type: "post",
+		    url: "api/user/test",
+		    data:{id:id},
+		    async:false,
+		    dataType:"json",
+		    success:function(res){
+		        console.log(res);
+			 } 
+
+		})
     })
     $('.mask').click(function(){
        $('.grow_box').hide();

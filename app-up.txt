@@ -1,0 +1,74 @@
+
+前后端分离参考
+https://segmentfault.com/a/1190000009329474?_ea=2038402
+
+http://blog.jobbole.com/111624/
+
+
+1.express 基于 Node.js 平台，快速、开放、极简的 web 开发框架。
+
+cnpm install express --save
+
+cnpm install --save-dev http-proxy-middleware
+
+2.用例
+// include dependencies 
+var express = require('express');
+var proxy = require('http-proxy-middleware');
+
+// proxy middleware options 
+var options = {
+        target: 'http://www.example.org', // target host 
+        changeOrigin: true,               // needed for virtual hosted sites 
+        ws: true,                         // proxy websockets 
+        pathRewrite: {
+            '^/api/old-path' : '/api/new-path',     // rewrite path 
+            '^/api/remove/path' : '/path'           // remove base path 
+        },
+        router: {
+            // when request.headers.host == 'dev.localhost:3000', 
+            // override target 'http://www.example.org' to 'http://localhost:8000' 
+            'dev.localhost:3000' : 'http://localhost:8000'
+        }
+    };
+
+// create the proxy (without context) 
+var exampleProxy = proxy(options);
+
+// mount `exampleProxy` in web server 
+var app = express();
+    app.use('/api', exampleProxy);
+    app.listen(3000);
+
+参考
+https://blog.csdn.net/xmloveth/article/details/56847456
+
+
+5.官网
+http://www.expressjs.com.cn/starter/generator.html
+
+
+如果你的静态资源存放在多个目录下面，你可以多次调用 express.static 中间件：
+
+app.use(express.static('public'));
+app.use(express.static('files'));
+
+
+
+//项目启动
+
+前端开发执行如下命令就可以
+gulp clean 
+gulp
+node app.js //启动nodeJs Express 模块
+
+
+发布时候执行
+gulp concat-js    //对比生成 js 更换md5文件 .json
+gulp concat-css     //对比生成 css 更换md5文件 .json
+gulp rev   //执行更换  解决页面样式缓存问题
+
+线上需要安装nodeJs
+node app.js
+
+
