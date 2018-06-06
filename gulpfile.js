@@ -21,29 +21,38 @@ var gif=require('gulp-if');
 var cleanCss =require('gulp-clean-css');
 var fs =require('fs');
 var isProduction = process.env.NODE_ENV  === 'prod';
-var browsersync = require('browser-sync').create();
+var browsersync = require('browser-sync').create();   // 静态服务器
+var reload = browsersync.reload;
+
+
 var buildBasePath = 'src/';//构建输出的目录
 var outPath="dist/";
 //执行前最好执行 gulp clean   在执行 gulp
 //执行完成后 执行 gulp concat-js gulp concat-css    gulp rev
 gulp.task('default',['serve'])
 
-gulp.task('serve', function() {
+gulp.task('dev', function() {
+    // [] 中任务是并行的，其他按照先后顺序执行
     sequence('uglify-js','minify-css','copyimg','html');
+})
+
+gulp.task('serve', function() {
     browsersync.init({
         port: 8080,
         server: {
-            baseDir: ['./src']
+            baseDir: ['./assert'],
+            open: 'external',// 决定Browsersync启动时自动打开的网址 external 表示 可外部打开 url, 可以在同一 wifi 下不同终端测试
+            injectChanges: true // 注入CSS改变
         }
     });
     //js监控
-    gulp.watch('assert/js/**/*.js', ['uglify-js'],browsersync.reload());
+    gulp.watch('assert/js/**/*.js', ['uglify-js']).on('change', reload);;
     //监控css
-    gulp.watch('assert/css/**/*.css',['minify-css'],browsersync.reload())
+    gulp.watch('assert/css/**/*.css',['minify-css']).on('change', reload);
     //监控图片
-    gulp.watch('assert/images/*',['copyimg'],browsersync.reload());
+    gulp.watch('assert/images/*',['copyimg']).on('change', reload);
     //html监控
-    gulp.watch('assert/*.html', ['html'],browsersync.reload());
+    gulp.watch('assert/*.html', ['html']).on('change', reload);
 });
 // 语法检查
 gulp.task('jshint', function () {
