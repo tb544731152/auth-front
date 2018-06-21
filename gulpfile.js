@@ -30,12 +30,10 @@ var outPath="dist/";
 //执行前最好执行 gulp clean   在执行 gulp
 //执行完成后 执行 gulp concat-js gulp concat-css    gulp rev
 gulp.task('default',['serve'])
-
-gulp.task('dev', function() {
+gulp.task('dev',function() {
     // [] 中任务是并行的，其他按照先后顺序执行
     sequence('uglify-js','minify-css','copyimg','html');
 })
-
 gulp.task('serve', function() {
     browsersync.init({
         port: 8080,
@@ -46,9 +44,9 @@ gulp.task('serve', function() {
         }
     });
     //js监控
-    gulp.watch('assert/js/**/*.js', ['uglify-js']).on('change', reload);;
+    gulp.watch('assert/js/**/*.js', ['uglify-js','concat-js','rev']).on('change', reload);;
     //监控css
-    gulp.watch('assert/css/**/*.css',['minify-css']).on('change', reload);
+    gulp.watch('assert/css/**/*.css',['minify-css','concat-css','rev']).on('change', reload);
     //监控图片
     gulp.watch('assert/images/*',['copyimg']).on('change', reload);
     //html监控
@@ -60,6 +58,12 @@ gulp.task('jshint', function () {
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
 });
+
+//发布md5
+gulp.task('concat', function() {
+    sequence('concat-css','concat-js');
+})
+
 //cssmd5，压缩后并用md5进行命名，下面使用revCollector进行路径替换
 gulp.task('concat-css', function() {                        //- 创建一个名为 concat 的 task  
      gulp.src(buildBasePath+'/css/**/*.css')
@@ -136,7 +140,7 @@ gulp.task('html-update', function () {
     gulp.watch('assert/*.html', ['html']);
 });
 //使用rev替换成md5文件名，这里包括html和css的资源文件也一起
-gulp.task('rev', function() {
+gulp.task('rev',['concat'],function() {
     //html，针对js,css,img
     gulp.src(['rev/**/*.json', outPath+'**/*.html'])
         .pipe(revCollector({replaceReved:true }))
