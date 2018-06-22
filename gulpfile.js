@@ -22,6 +22,7 @@ var cleanCss =require('gulp-clean-css');
 var fs =require('fs');
 var isProduction = process.env.NODE_ENV  === 'prod';
 var browsersync = require('browser-sync').create();   // 静态服务器
+var imageMin = require('gulp-imagemin');
 var reload = browsersync.reload;
 
 
@@ -30,9 +31,10 @@ var outPath="dist/";
 //执行前最好执行 gulp clean   在执行 gulp
 //执行完成后 执行 gulp concat-js gulp concat-css    gulp rev
 gulp.task('default',['serve'])
-gulp.task('dev',function() {
+
+gulp.task('pdc',function() {
     // [] 中任务是并行的，其他按照先后顺序执行
-    sequence('uglify-js','minify-css','copyimg','html');
+    sequence('rev-pdc');
 })
 gulp.task('serve', function() {
     browsersync.init({
@@ -44,11 +46,11 @@ gulp.task('serve', function() {
         }
     });
     //js监控
-    gulp.watch('assert/js/**/*.js', ['uglify-js','concat-js','rev']).on('change', reload);;
+    gulp.watch('assert/js/**/*.js', ['uglify-js-task']).on('change', reload);;
     //监控css
-    gulp.watch('assert/css/**/*.css',['minify-css','concat-css','rev']).on('change', reload);
+    gulp.watch('assert/css/**/*.css',['minify-css-task']).on('change', reload);
     //监控图片
-    gulp.watch('assert/images/*',['copyimg','concat-img','revimg']).on('change', reload);
+    gulp.watch('assert/images/*',['task-img']).on('change', reload);
     //html监控
     gulp.watch('assert/*.html', ['html']).on('change', reload);
 });
@@ -59,72 +61,54 @@ gulp.task('jshint', function () {
         .pipe(jshint.reporter('default'));
 });
 
-//发布md5
-gulp.task('concat', function() {
-    sequence('concat-css','concat-js','concat-img');
-})
-
-//cssmd5，压缩后并用md5进行命名，下面使用revCollector进行路径替换
-gulp.task('concat-css', function() {                        //- 创建一个名为 concat 的 task  
-     gulp.src(buildBasePath+'/css/**/*.css')
-    .pipe(rev())                              //- 文件名加MD5后缀
-    .pipe(gulp.dest(outPath+'/css'))                //- 输出文件本地
-    .pipe(rev.manifest())                     //- 生成一个rev-manifest.json
-    .pipe(gulp.dest('./rev/css/'));                  //- 将 rev-manifest.json 保存到 rev 目录内
-});
-//jsmd5，压缩后并用md5进行命名，下面使用revCollector进行路径替换
-gulp.task('concat-js', function() {                        //- 创建一个名为 concat 的 task  
-    gulp.src(buildBasePath+'/js/**/*.js')
-   .pipe(rev())                              //- 文件名加MD5后缀
-   .pipe(gulp.dest(outPath+"/js"))                //- 输出文件本地
-   .pipe(rev.manifest())                     //- 生成一个rev-manifest.json
-   .pipe(gulp.dest('./rev/js/'));                  //- 将 rev-manifest.json 保存到 rev 目录内
-});
-
-//jsmd5，压缩后并用md5进行命名，下面使用revCollector进行路径替换
-gulp.task('concat-img', function() {                        //- 创建一个名为 concat 的 task  
-    gulp.src([buildBasePath+'/images/**/*.png',buildBasePath+'/images/**/*.jpg'])
-   .pipe(rev())                              //- 文件名加MD5后缀
-   .pipe(gulp.dest(outPath+"/images"))                //- 输出文件本地
-   .pipe(rev.manifest())                     //- 生成一个rev-manifest.json
-   .pipe(gulp.dest('./rev/images/'));                  //- 将 rev-manifest.json 保存到 rev 目录内
-});
-
 //压缩js
-gulp.task('uglify-js',function(){
-    gulp.src(['assert/js/*.js'])
+gulp.task('uglify-js-task',function(){
+    var stream = gulp.src(['assert/js/**/*.js'])
     .pipe(uglify())
     .on('error', function (err) {
         gutil.log(gutil.colors.red('[Error]'), err.toString());
     })
     .pipe(gulp.dest(buildBasePath+'/js/'))
-    //.pipe(gulp.dest(outPath+'/js/'));
+    .pipe(rev())                              //- 文件名加MD5后缀
+    .pipe(gulp.dest(outPath+"/js"))           //- 输出文件本地
+    .pipe(rev.manifest())                     //- 生成一个rev-manifest.json
+    .pipe(gulp.dest('./rev/js/'));            //- 将 rev-manifest.json 保存到 rev 目录内
+    return stream; // 返回一个 stream 来表示它已经被完成
 })
 //js监控
-gulp.task('js-update', function () {
-    gulp.watch('assert/js/**/*.js', ['uglify-js']);
+gulp.task('js-watch', function () {
+    sequence('uglify-js-task','rev');
 });
 //缩小css
-gulp.task('minify-css',function(){
-    gulp.src('assert/css/**/*.css')
+gulp.task('minify-css-task',function(){
+    var stream =  gulp.src('assert/css/**/*.css')
     .pipe(cleanCss())
     .pipe(gulp.dest(buildBasePath+'/css/'))
-    //.pipe(gulp.dest(outPath+'/css/'));
+    .pipe(rev())                              //- 文件名加MD5后缀
+    .pipe(gulp.dest(outPath+'/css'))                //- 输出文件本地
+    .pipe(rev.manifest())                     //- 生成一个rev-manifest.json
+    .pipe(gulp.dest('./rev/css/'));                //- 将 rev-manifest.json 保存到 rev 目录内
+    return stream; // 返回一个 stream 来表示它已经被完成
 })
 //监控css
-gulp.task('minify-css-watch',function(){
-    gulp.watch('assert/css/**/*.css',['minify-css'])
+gulp.task('css-watch',function(){
+    sequence('minify-css-task','rev');
 })
 //拷贝图片
-gulp.task('copyimg',  function() {
+gulp.task('task-img',  function() {
     //如果下面执行了md5资源文件img，那么这步可以省略
-    gulp.src(['assert/images/**/*.png','assert/images/**/*.jpg'])
-        .pipe(gulp.dest(buildBasePath+'/images/'))
-        //.pipe(gulp.dest(outPath+'images'));
+    var stream =  gulp.src(['assert/images/**/*.png','assert/images/**/*.jpg'])
+    .pipe(imageMin({progressive: true}))
+    .pipe(gulp.dest(buildBasePath+'/images/'))
+    .pipe(rev())                              //- 文件名加MD5后缀
+    .pipe(gulp.dest(outPath+"/images"))       //- 输出文件本地
+    .pipe(rev.manifest())                     //- 生成一个rev-manifest.json
+    .pipe(gulp.dest('./rev/images/'));        //- 将 rev-manifest.json 保存到 rev 目录内
+    return stream; // 返回一个 stream 来表示它已经被完成
 });
 //监控图片
-gulp.task('copyimg-watch',function(){
-    gulp.watch('assert/images/*',['copyimg'])
+gulp.task('img-watch',function(){
+    sequence('task-img','rev');
 })
 //html压缩
 gulp.task('html',function(){
@@ -138,35 +122,47 @@ gulp.task('html',function(){
         minifyJS: true,//压缩页面JS
         minifyCSS: true//压缩页面CSS
     };
-    gulp.src('assert/**/*.html')
+    var stream = gulp.src('assert/**/*.html')
         .pipe(gulpRemoveHtml())//清除特定标签
         .pipe(removeEmptyLines({removeComments: true}))//清除空白行
         .pipe(htmlmin(options))
         .pipe(gulp.dest(buildBasePath))
         .pipe(gulp.dest(outPath));
+    return stream;    
 });
 //html监控
 gulp.task('html-update', function () {
-    gulp.watch('assert/*.html', ['html']);
+    sequence('html','rev');
 });
 //使用rev替换成md5文件名，这里包括html和css的资源文件也一起
-gulp.task('rev',['concat'],function() {
+gulp.task('rev-pdc',['uglify-js-task','minify-css-task','task-img','html'],function() {
     //html，针对js,css,img
-    gulp.src(['rev/**/*.json', outPath+'**/*.html'])
+    var stream =  gulp.src(['rev/**/*.json', outPath+'**/*.html'])
         .pipe(revCollector({replaceReved:true }))
         .pipe(gulp.dest(outPath));
-});
-gulp.task('revimg', function() {
-    //css，主要是针对img替换
-    gulp.src(['rev/images/*.json',outPath+'css/*.css'])
+
+        gulp.src(['rev/images/*.json',outPath+'css/*.css'])
         .pipe(revCollector({replaceReved:true }))
         .pipe(gulp.dest(outPath+'css'));
+    return stream;
+});
+//使用rev替换成md5文件名，这里包括html和css的资源文件也一起
+gulp.task('rev-dev',function() {
+    //html，针对js,css,img
+    var stream =  gulp.src(['rev/**/*.json', outPath+'**/*.html'])
+        .pipe(revCollector({replaceReved:true }))
+        .pipe(gulp.dest(outPath));
+
+        gulp.src(['rev/images/*.json',outPath+'css/*.css'])
+        .pipe(revCollector({replaceReved:true }))
+        .pipe(gulp.dest(outPath+'css'));
+    return stream;
 });
 //删除Build文件
-gulp.task('clean', function () {
+gulp.task('clean', function (cb) {
     del([
         buildBasePath+'**/*',
         outPath+'**/*',
         'rev/*'
-    ]);
+    ],cb);
 })
